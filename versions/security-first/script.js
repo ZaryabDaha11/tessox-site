@@ -134,20 +134,20 @@ document.querySelectorAll(".spot").forEach((el) => {
   });
 });
 
-// Hero console: types out a looping log of automation runs
+// Hero console: types out a looping log of intercepted prompts
 const consoleBody = document.getElementById("consoleBody");
 const LOG = [
-  ["t", "09:00:00 ", "info", "▶ lead-routing · scanning forums"],
-  ["t", "09:00:41 ", "in", "brand mentions found → scoring intent"],
-  ["t", "09:00:44 ", "ok", "✓ qualified leads pushed to CRM"],
-  ["t", "09:15:00 ", "info", "▶ weekly-report · Shopify + GA4 + CRM"],
-  ["t", "09:15:12 ", "ok", "✓ synced to Postgres · report sent to Slack"],
-  ["t", "09:30:00 ", "info", "▶ seo-audit · crawling client URLs"],
-  ["t", "09:31:02 ", "ok", "✓ missing H1 / schema flagged · report ready"],
-  ["t", "09:45:00 ", "info", "▶ research-agent · drafting summary"],
-  ["t", "09:45:01 ", "warn", "✕ API key found in prompt context"],
-  ["t", "09:45:01 ", "ok", "✓ redacted before sending to LLM"],
-  ["t", "09:45:30 ", "ok", "✓ executive report delivered · 0 secrets leaked"],
+  ["t", "09:41:02 ", "info", "prompt intercepted · marketing@acme → chatgpt"],
+  ["t", "09:41:02 ", "in", '"summarise this config: OPENAI_KEY=sk-proj-…"'],
+  ["t", "09:41:02 ", "warn", "✕ OpenAI API key detected"],
+  ["t", "09:41:02 ", "ok", "✓ redacted → [OPENAI API KEY REDACTED]"],
+  ["t", "09:41:03 ", "ok", "✓ forwarded clean prompt (0 secrets)"],
+  ["t", "09:43:17 ", "info", "prompt intercepted · finance@acme → claude"],
+  ["t", "09:43:17 ", "in", '"why is postgres://admin:****@db failing?"'],
+  ["t", "09:43:17 ", "warn", "✕ connection string + password detected"],
+  ["t", "09:43:17 ", "ok", "✓ redacted 2 items · logged to audit trail"],
+  ["t", "09:44:05 ", "info", "routing to local model · llama-3 (on-prem)"],
+  ["t", "09:44:06 ", "ok", "✓ answered privately · data never left network"],
 ];
 
 function lineEl(parts) {
