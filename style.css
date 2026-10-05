@@ -99,9 +99,9 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round
 .logo { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em; }
 .logo-mark {
   display: grid; place-items: center;
-  width: 34px; height: 34px; border-radius: 10px;
+  height: 34px; padding: 0 9px; border-radius: 10px;
   background: var(--grad); color: #04120c;
-  font-family: var(--mono); font-size: .8rem; font-weight: 500;
+  font-family: var(--mono); font-size: .74rem; font-weight: 500; letter-spacing: .04em;
   box-shadow: 0 4px 20px -4px var(--glow);
 }
 .nav-links { display: flex; align-items: center; gap: 30px; font-size: .92rem; }
@@ -407,7 +407,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round
 .footer { padding: 40px 0 36px; color: var(--muted); font-size: .85rem; overflow: hidden; }
 .footer-wordmark {
   font-family: var(--display); font-weight: 700; letter-spacing: -0.05em; line-height: .85;
-  font-size: clamp(4rem, 17vw, 14rem); text-align: center; white-space: nowrap;
+  font-size: clamp(3rem, 12.5vw, 11rem); text-align: center; white-space: nowrap;
   background: linear-gradient(180deg, rgba(148, 163, 184, .18), transparent 85%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
   margin-bottom: 28px; user-select: none;
