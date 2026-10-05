@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZK Labs — AI Automation & Private AI Agency</title>
+  <meta name="description" content="ZK Labs is an AI agency building automations, offline LLM deployments and data-leak guards that keep company secrets out of AI tools.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- TODO(Zaryab): "ZK Labs" is a working name — search & replace it with your agency's name. -->
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="ambient" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a href="#top" class="logo"><span class="logo-mark">ZK</span> ZK Labs</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#demo">Live demo</a>
+        <a href="#work">Work</a>
+        <a href="#case-studies">Case studies</a>
+        <a href="#process">Process</a>
+        <a href="#team">Team</a>
+        <a href="#contact" class="btn btn-sm">Book a call</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="grid-bg" aria-hidden="true"></div>
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot"></span> AI automation & AI security agency</p>
+          <h1>AI that works for your business —<br><span class="grad">without leaking it.</span></h1>
+          <p class="lede">
+            ZK Labs helps companies adopt AI safely. We build automations that save your team hours,
+            deploy LLMs that run entirely on your own hardware, and ship guardrails that stop
+            API keys, credentials and customer data from ending up in ChatGPT.
+          </p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn">Book a discovery call <span aria-hidden="true">→</span></a>
+            <a href="#demo" class="btn btn-ghost">Try our leak guard</a>
+          </div>
+          <ul class="hero-tags">
+            <li>Workflow automation</li>
+            <li>Offline / on-prem LLMs</li>
+            <li>AI data-leak prevention</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="console">
+            <div class="console-head">
+              <span class="lights"><i></i><i></i><i></i></span>
+              <span class="console-title">zk-guard — live</span>
+              <span class="console-live"><span class="dot"></span> monitoring</span>
+            </div>
+            <div class="console-body" id="consoleBody"></div>
+          </div>
+          <div class="float-badge badge-1">
+            <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            <div><strong>0</strong> secrets leaked</div>
+          </div>
+          <div class="float-badge badge-2">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+            <div>LLM running <strong>on-prem</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMISES -->
+    <section class="promises">
+      <div class="wrap promises-inner">
+        <div class="promise">
+          <div class="promise-icon"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+          <div>
+            <h3>Your data stays yours</h3>
+            <p>Security is designed in from day one — not bolted on after launch.</p>
+          </div>
+        </div>
+        <div class="promise">
+          <div class="promise-icon"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+          <div>
+            <h3>Production, not prototypes</h3>
+            <p>We ship systems that run reliably, with monitoring and error handling.</p>
+          </div>
+        </div>
+        <div class="promise">
+          <div class="promise-icon"><svg viewBox="0 0 24 24"><path d="M14 3h7v7"/><path d="M21 3l-9 9"/><path d="M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg></div>
+          <div>
+            <h3>You own everything</h3>
+            <p>Full source code, documentation and credentials handed over to your team.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="kicker"><span>01</span> Services</p>
+          <h2>Three ways we help companies adopt AI <span class="grad">safely</span></h2>
+        </div>
+        <div class="cards">
+          <article class="card spot">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 12h4l3-8 4 16 3-8h2"/></svg>
+            </div>
+            <h3>AI Automation</h3>
+            <p>We turn repetitive work — lead routing, document processing, reporting, support triage — into reliable pipelines that run without babysitting.</p>
+            <ul class="ticks">
+              <li>Agentic workflows & integrations</li>
+              <li>CRM, email & internal-tool automation</li>
+              <li>Monitoring, retries and clear handover docs</li>
+            </ul>
+          </article>
+          <article class="card spot">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+            </div>
+            <h3>Offline LLM Integration</h3>
+            <p>We deploy private language models on your own servers or machines. Your data never leaves the building, and there's no per-token bill.</p>
+            <ul class="ticks">
+              <li>Local model selection & deployment</li>
+              <li>RAG over internal documents</li>
+              <li>Air-gapped & on-prem setups</li>
+            </ul>
+          </article>
+          <article class="card card-feature spot">
+            <span class="card-flag">Our specialty</span>
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <h3>AI Data-Leak Prevention</h3>
+            <p>Employees paste secrets into AI tools every day. Our guards catch API keys, passwords and sensitive data <em>before</em> they reach an external LLM.</p>
+            <ul class="ticks">
+              <li>Secret & PII detection</li>
+              <li>Redaction before prompts are sent</li>
+              <li>Audit logs & usage policies</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE DEMO -->
+    <section id="demo" class="section section-alt">
+      <div class="wrap">
+        <div class="sec-head sec-head-split">
+          <div>
+            <p class="kicker"><span>02</span> Live demo</p>
+            <h2>See our leak guard <span class="grad">in action</span></h2>
+          </div>
+          <p class="section-lede">Type or paste a prompt the way an employee might. Everything is checked locally in your browser — nothing is sent anywhere.</p>
+        </div>
+
+        <div class="demo">
+          <div class="demo-pane">
+            <div class="pane-head">
+              <span class="pane-title"><span class="lights"><i></i><i></i><i></i></span> Employee prompt</span>
+              <button class="link-btn" id="demoReset" type="button">↺ Reset example</button>
+            </div>
+            <textarea id="demoInput" spellcheck="false" aria-label="Prompt to scan"></textarea>
+          </div>
+          <div class="demo-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>
+          </div>
+          <div class="demo-pane demo-pane-out">
+            <div class="pane-head">
+              <span class="pane-title">What the AI actually receives</span>
+              <span class="status" id="demoStatus"></span>
+            </div>
+            <pre id="demoOutput" class="demo-output" aria-live="polite"></pre>
+          </div>
+        </div>
+        <ul class="findings" id="demoFindings" aria-live="polite"></ul>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats" aria-label="Results by the numbers">
+      <div class="wrap stats-inner">
+        <div class="stat">
+          <span class="stat-num" data-count="20" data-suffix="+">0</span>
+          <span class="stat-label">hours of weekly manual reading replaced by lead routing</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-count="90" data-suffix="%">0</span>
+          <span class="stat-label">less time spent on market research</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-count="5" data-suffix="×">0</span>
+          <span class="stat-label">more clients handled without hiring</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-count="15" data-suffix=" hrs">0</span>
+          <span class="stat-label">saved every week on reporting</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECENT OUTCOMES -->
+    <section id="work" class="section">
+      <div class="wrap">
+        <div class="sec-head sec-head-split">
+          <div>
+            <p class="kicker"><span>03</span> Recent outcomes</p>
+            <h2>Workflows that buy back your team's <span class="grad">time</span></h2>
+          </div>
+          <p class="section-lede">We build systems that eliminate manual data entry, connect disconnected software, and automate the tedious parts of your business operations.</p>
+        </div>
+        <div class="projects">
+          <article class="project spot">
+            <div class="project-top">
+              <span class="project-idx">01</span>
+              <span class="project-stack">n8n + Webhooks</span>
+            </div>
+            <h3>Reddit Social Listening & Lead Routing</h3>
+            <dl class="project-meta">
+              <div><dt>Problem</dt><dd>Sales teams were manually reading thousands of forum threads to find customer pain points and highly qualified leads.</dd></div>
+              <div><dt>Solution</dt><dd>A background pipeline that scans community forums, extracts relevant brand mentions, analyzes user intent, and delivers ready-to-contact leads to the CRM.</dd></div>
+              <div class="result"><dt>Result</dt><dd>Replaced 20+ hours of weekly manual reading with an instant, exportable lead list.</dd></div>
+            </dl>
+            <div class="project-tags"><span>Lead Generation</span><span>CRM Routing</span><span>Sentiment Analysis</span></div>
+          </article>
+
+          <article class="project spot">
+            <div class="project-top">
+              <span class="project-idx">02</span>
+              <span class="project-stack">Python + Web Scraping</span>
+            </div>
+            <h3>Automated Technical SEO Auditor</h3>
+            <dl class="project-meta">
+              <div><dt>Problem</dt><dd>SEO teams were manually auditing hundreds of client web pages to check for basic compliance like H1 tags and schema markup, burning billable hours.</dd></div>
+              <div><dt>Solution</dt><dd>A bulk auditing pipeline that automatically scans lists of URLs and instantly flags missing H1s, category optimization errors, and missing Product/FAQ schemas.</dd></div>
+              <div class="result"><dt>Result</dt><dd>Turned a multi-day manual website audit into a 1-minute automated report, eliminating human oversight.</dd></div>
+            </dl>
+            <div class="project-tags"><span>Technical SEO</span><span>Automated Auditing</span><span>Data Parsing</span></div>
+          </article>
+
+          <article class="project spot">
+            <div class="project-top">
+              <span class="project-idx">03</span>
+              <span class="project-stack">Data Scraping + Analytics</span>
+            </div>
+            <h3>YouTube Audience Intelligence Engine</h3>
+            <dl class="project-meta">
+              <div><dt>Problem</dt><dd>Content creators and agencies were spending hours manually watching videos and scrolling through comments to find content gaps.</dd></div>
+              <div><dt>Solution</dt><dd>A bulk scraping engine that instantly extracts highly-targeted video metadata, competitor metrics, and exact viewer questions by topic or channel.</dd></div>
+              <div class="result"><dt>Result</dt><dd>Reduced market research time by 90% and provided data-backed content strategies based on what audiences are actually asking.</dd></div>
+            </dl>
+            <div class="project-tags"><span>Market Research</span><span>Data Extraction</span><span>Content Strategy</span></div>
+          </article>
+
+          <article class="project spot">
+            <div class="project-top">
+              <span class="project-idx">04</span>
+              <span class="project-stack">Data Pipeline + PostgreSQL</span>
+            </div>
+            <h3>Cross-Platform Reporting Automation</h3>
+            <dl class="project-meta">
+              <div><dt>Problem</dt><dd>Analysts were wasting hours every week stitching together reports by hand, downloading CSVs from Shopify, GA4, and custom CRMs.</dd></div>
+              <div><dt>Solution</dt><dd>A centralized, automated data pipeline that pulls all sources into a single, real-time database without human intervention.</dd></div>
+              <div class="result"><dt>Result</dt><dd>Eliminated manual data entry, saving 15 hours a week and enabling the agency to handle 5x more clients without hiring.</dd></div>
+            </dl>
+            <div class="project-tags"><span>Data Centralization</span><span>ETL Pipeline</span><span>Analytics</span></div>
+          </article>
+
+          <article class="project spot">
+            <div class="project-top">
+              <span class="project-idx">05</span>
+              <span class="project-stack">n8n + Google Sheets</span>
+            </div>
+            <h3>Competitor Gap Analysis Tracker</h3>
+            <dl class="project-meta">
+              <div><dt>Problem</dt><dd>SEO agencies were manually checking AI search engines daily to track client brand visibility, which was slow and prone to human error.</dd></div>
+              <div><dt>Solution</dt><dd>A background tracking system that automatically queries search engines daily and logs competitor gaps directly into a live Google Sheet.</dd></div>
+              <div class="result"><dt>Result</dt><dd>Saved 12 hours of manual tracking per week and unlocked real-time visibility reporting for agency clients.</dd></div>
+            </dl>
+            <div class="project-tags"><span>Data Logging</span><span>Google Workspace</span></div>
+          </article>
+
+          <article class="project spot">
+            <div class="project-top">
+              <span class="project-idx">06</span>
+              <span class="project-stack">Automation + AI</span>
+            </div>
+            <h3>Automated Market Research Agent</h3>
+            <dl class="project-meta">
+              <div><dt>Problem</dt><dd>Marketing teams were spending days manually scraping web data, forums, and news sites to compile competitor reports.</dd></div>
+              <div><dt>Solution</dt><dd>A multi-source automated workflow that pulls data from across the web and synthesizes it into a formatted executive report.</dd></div>
+              <div class="result"><dt>Result</dt><dd>Turned a 3-day manual research task into a 30-second automated process, saving agencies thousands in labor costs.</dd></div>
+            </dl>
+            <div class="project-tags"><span>Web Scraping</span><span>AI Synthesis</span><span>Reporting</span></div>
+          </article>
+
+          <article class="project spot">
+            <div class="project-top">
+              <span class="project-idx">07</span>
+              <span class="project-stack">n8n + Slack</span>
+            </div>
+            <h3>Automated Error Recovery & Alerting</h3>
+            <dl class="project-meta">
+              <div><dt>Problem</dt><dd>Internal company workflows were failing silently, causing missed client deliverables and stalled operations.</dd></div>
+              <div><dt>Solution</dt><dd>An automated safety net that catches workflow errors in real-time, attempts auto-recovery, and alerts the team via Slack if human intervention is needed.</dd></div>
+              <div class="result"><dt>Result</dt><dd>Eliminated silent operational failures and reduced manual dashboard monitoring to zero.</dd></div>
+            </dl>
+            <div class="project-tags"><span>System Monitoring</span><span>Slack Integration</span></div>
+          </article>
+
+          <article class="project spot">
+            <div class="project-top">
+              <span class="project-idx">08</span>
+              <span class="project-stack">Python + Internal Wiki</span>
+            </div>
+            <h3>Enterprise Knowledge Retrieval</h3>
+            <dl class="project-meta">
+              <div><dt>Problem</dt><dd>New hires and existing teams were spending hours searching through massive internal documentation hubs for specific operational answers.</dd></div>
+              <div><dt>Solution</dt><dd>An intelligent search agent that instantly scans company data to find and summarize exact answers.</dd></div>
+              <div class="result"><dt>Result</dt><dd>Saved an average of 4 hours per employee per week in information hunting and accelerated onboarding.</dd></div>
+            </dl>
+            <div class="project-tags"><span>Internal Tools</span><span>Knowledge Management</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section id="case-studies" class="section section-alt">
+      <div class="wrap">
+        <div class="sec-head sec-head-split">
+          <div>
+            <p class="kicker"><span>04</span> Case studies</p>
+            <h2>Two workflows, <span class="grad">end to end</span></h2>
+          </div>
+          <p class="section-lede">A look at the operational bottlenecks businesses face, what we build to solve them, and the resulting impact on their bottom line.</p>
+        </div>
+        <div class="cases">
+          <article class="case">
+            <div class="case-head">
+              <div>
+                <p class="case-label">Case study · SEO agency</p>
+                <h3>Automated Technical SEO Auditor</h3>
+                <p>Eliminating manual website audits for SEO agencies</p>
+              </div>
+              <div class="case-metric">
+                <span class="metric-from">3 days</span>
+                <span class="metric-arrow" aria-hidden="true">→</span>
+                <span class="metric-to">&lt;2 min</span>
+                <span class="metric-label">per website audit</span>
+              </div>
+            </div>
+            <div class="case-steps">
+              <div class="case-step">
+                <h4><span>01</span> The bottleneck</h4>
+                <p>An SEO agency was paying analysts to manually click through hundreds of client web pages to verify H1 tag presence, category optimization, and Product/FAQ schema markup. It was burning valuable billable hours on repetitive data verification.</p>
+              </div>
+              <div class="case-step">
+                <h4><span>02</span> What we built</h4>
+                <p>A bulk auditing pipeline built in Python. The agency drops a list of URLs into the system, and the scraper automatically crawls the pages, parses the HTML and JSON-LD, and generates a clean report highlighting exactly which pages are missing critical schemas or tags.</p>
+              </div>
+              <div class="case-step case-roi">
+                <h4><span>03</span> The ROI</h4>
+                <p>Website audits that previously took three days are now completed in under two minutes. By driving the time-cost of an audit to near-zero, the agency now uses these automated reports as instant, free lead magnets to close new clients.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="case">
+            <div class="case-head">
+              <div>
+                <p class="case-label">Case study · Content marketing</p>
+                <h3>YouTube Audience Intelligence</h3>
+                <p>Automating content strategy and market research</p>
+              </div>
+              <div class="case-metric">
+                <span class="metric-to">−90%</span>
+                <span class="metric-label">market research time</span>
+              </div>
+            </div>
+            <div class="case-steps">
+              <div class="case-step">
+                <h4><span>01</span> The bottleneck</h4>
+                <p>A content marketing team struggled to find data-backed video topics. Their research process involved manually watching competitor videos, guessing keywords, and endlessly scrolling through YouTube comments to find what viewers were actually asking.</p>
+              </div>
+              <div class="case-step">
+                <h4><span>02</span> What we built</h4>
+                <p>A custom data extraction and filtering engine. The team inputs keywords or channel URLs, and the system instantly extracts video metadata (filtered by length, language, and views) and scrapes the comments. An AI layer then identifies and groups actual viewer questions by topic.</p>
+              </div>
+              <div class="case-step case-roi">
+                <h4><span>03</span> The ROI</h4>
+                <p>Market research time was reduced by 90%. Instead of guessing what to create, the agency now pitches lucrative content retainers based on the exact, unanswered questions their clients' target audiences are already asking on YouTube.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="section">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="kicker"><span>05</span> Process</p>
+          <h2>How an engagement <span class="grad">works</span></h2>
+        </div>
+        <ol class="steps">
+          <li>
+            <span class="step-node">01</span>
+            <h3>Discovery call</h3>
+            <p>We map your workflow, the data involved and where AI can genuinely help — or where it shouldn't.</p>
+          </li>
+          <li>
+            <span class="step-node">02</span>
+            <h3>Proposal</h3>
+            <p>A clear scope, timeline and fixed price. Security and privacy requirements are agreed up front.</p>
+          </li>
+          <li>
+            <span class="step-node">03</span>
+            <h3>Build & test</h3>
+            <p>Weekly check-ins and working demos, tested against your real data and edge cases.</p>
+          </li>
+          <li>
+            <span class="step-node">04</span>
+            <h3>Handover & support</h3>
+            <p>Documentation, training for your team, and ongoing support while it runs in production.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section class="section section-alt">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="kicker"><span>06</span> Stack</p>
+          <h2>The stack we <span class="grad">ship on</span></h2>
+        </div>
+        <div class="stack">
+          <div class="stack-group">
+            <h3>Automation</h3>
+            <ul><li>n8n</li><li>Zapier</li><li>Make</li><li>Temporal</li><li>Webhooks</li><li>Cron</li></ul>
+          </div>
+          <div class="stack-group">
+            <h3>Languages & data</h3>
+            <ul><li>Python</li><li>Node.js</li><li>TypeScript</li><li>Bash</li><li>SQL / Postgres</li><li>Redis</li><li>Docker</li></ul>
+          </div>
+          <div class="stack-group">
+            <h3>LLM providers</h3>
+            <ul><li>OpenAI</li><li>Anthropic</li><li>OpenRouter</li><li>Gemini</li><li>LangChain</li><li>FAISS</li></ul>
+          </div>
+          <!-- TODO(Zaryab): edit to match the local-LLM tools you actually use. -->
+          <div class="stack-group">
+            <h3>Offline LLMs</h3>
+            <ul><li>Ollama</li><li>llama.cpp</li><li>vLLM</li><li>Llama</li><li>Mistral</li><li>Qwen</li></ul>
+          </div>
+          <div class="stack-group">
+            <h3>Cloud & infra</h3>
+            <ul><li>AWS</li><li>Lambda</li><li>S3</li><li>GCP</li><li>Linux</li><li>Nginx</li><li>Git</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="section">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="kicker"><span>07</span> Team</p>
+          <h2>The people behind <span class="grad">ZK Labs</span></h2>
+        </div>
+        <div class="team">
+          <article class="member spot">
+            <!-- TODO(Zaryab): swap the initials for a photo: <img src="zaryab.jpg" alt="Zaryab Khan"> -->
+            <div class="avatar" aria-hidden="true">ZK</div>
+            <div>
+              <h3>Zaryab Khan</h3>
+              <p class="role">Founder · Lead AI Automation Engineer</p>
+              <p>Builds the agency's automation pipelines, offline LLM deployments and AI security tooling. Focused on helping companies get the benefits of AI without handing their data to third parties.</p>
+              <div class="member-links">
+                <a href="https://www.linkedin.com/in/zaryab-khan-/" target="_blank" rel="noopener">LinkedIn ↗</a>
+                <a href="https://github.com/ZaryabDaha11" target="_blank" rel="noopener">GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+          <!-- TODO(Zaryab): copy the <article class="member"> block above for each partner/teammate. -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <div class="wrap">
+        <div class="contact-panel">
+          <div class="contact-copy">
+            <p class="kicker"><span>08</span> Contact</p>
+            <h2>Got a workflow to automate — or data to <span class="grad">protect?</span></h2>
+            <p class="section-lede">Tell us a bit about your business and we'll reply within one business day with ideas on what's possible.</p>
+            <ul class="contact-links">
+              <li>
+                <a href="mailto:zaryabdaha111@gmail.com">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                  zaryabdaha111@gmail.com
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/zaryab-khan-/" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/ZaryabDaha11" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+                  GitHub
+                </a>
+              </li>
+            </ul>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <label>Name<input name="name" required autocomplete="name" placeholder="Jane Doe"></label>
+              <label>Work email<input name="email" type="email" required autocomplete="email" placeholder="jane@company.com"></label>
+            </div>
+            <label>Company<input name="company" autocomplete="organization" placeholder="Company name"></label>
+            <label>What do you need help with?
+              <select name="topic">
+                <option>AI automation</option>
+                <option>Offline / private LLM</option>
+                <option>AI data-leak prevention</option>
+                <option>Something else</option>
+              </select>
+            </label>
+            <label>Message<textarea name="message" rows="4" required placeholder="What would you like to automate or protect?"></textarea></label>
+            <button class="btn btn-block" type="submit">Send enquiry <span aria-hidden="true">→</span></button>
+            <p class="form-note">Opens your email app with the message filled in.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-wordmark" aria-hidden="true">ZK Labs</div>
+      <div class="footer-inner">
+        <span>© <span id="year"></span> ZK Labs. Founded by Zaryab Khan.</span>
+        <nav class="footer-links">
+          <a href="#services">Services</a>
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
+          <a href="https://github.com/ZaryabDaha11" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
