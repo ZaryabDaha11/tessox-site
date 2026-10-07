@@ -32,8 +32,8 @@ const RULES = [
 
 const EXAMPLE = `Hey, can you fix this script? It keeps failing.
 
-OPENAI_API_KEY=sk-proj-Xk29fLq8ZtWm4Rv1Nc7Ba0YdEe5Hg3Jk
-AWS_KEY=AKIAZ7QX4M2N8P5R1T3W
+OPENAI_API_KEY=sk-proj-Xk29fLq8Zt0iWm4Rv1Nc7yBa0YdEey5Hg3Jk
+AWS_KEY=AKIAZ427QX4M92N8P45R1T3W
 DATABASE_URL=postgres://admin:hunter2@db.internal:5432/prod
 password: Summer2026!
 
@@ -94,7 +94,7 @@ document.getElementById("demoReset").addEventListener("click", () => {
 render();
 
 // Contact form → n8n webhook. Falls back to mailto if no webhook is set or it can't be reached.
-const CONTACT_WEBHOOK = "https://n8n-smartmarketer.duckdns.org/webhook/tessox-enquiry";
+const CONTACT_WEBHOOK = "https://n8n-smartmarketer.duckdns.org/webhook-test/tessox-enquiry";
 const CONTACT_EMAIL = "zaryabdaha111@gmail.com";
 
 const contactForm = document.getElementById("contactForm");
