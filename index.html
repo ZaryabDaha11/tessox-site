@@ -570,9 +570,16 @@
               </select>
             </label>
             <label>Message<textarea name="message" rows="4" required placeholder="What would you like to automate or protect?"></textarea></label>
-            <button class="btn btn-block" type="submit">Send enquiry <span aria-hidden="true">→</span></button>
-            <p class="form-note">Opens your email app with the message filled in.</p>
+            <!-- Spam trap: hidden from people, bots fill it in -->
+            <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+            <button class="btn btn-block" type="submit" id="contactSubmit">Send enquiry <span aria-hidden="true">→</span></button>
+            <p class="form-note" id="formStatus" role="status" aria-live="polite">We reply within one business day.</p>
           </form>
+          <div class="form-success" id="formSuccess" hidden tabindex="-1">
+            <div class="form-success-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></div>
+            <h3>Enquiry received</h3>
+            <p>Thanks — we'll get back to you within one business day.</p>
+          </div>
         </div>
       </div>
     </section>

@@ -414,6 +414,17 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round
 .contact-form textarea { resize: vertical; }
 .form-note { font-size: .76rem; color: var(--muted); margin: 0; text-align: center; }
 
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.contact-form .btn:disabled { opacity: .7; cursor: progress; transform: none; }
+.form-note a { color: var(--accent); text-decoration: underline; }
+.form-note.is-error { color: var(--danger); }
+.form-success { display: grid; justify-items: center; align-content: center; text-align: center; gap: 6px; min-height: 100%; padding: 40px 20px; outline: none; }
+.form-success[hidden] { display: none; }
+.form-success-icon { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; margin-bottom: 12px; color: var(--accent); background: var(--accent-dim); border: 1px solid rgba(62, 230, 168, .35); box-shadow: 0 0 40px -6px var(--glow); }
+.form-success-icon svg { width: 28px; height: 28px; stroke-width: 2.4; }
+.form-success h3 { font-size: 1.5rem; margin: 0; }
+.form-success p { color: var(--muted); margin: 0; }
+
 /* Footer */
 .footer { padding: 40px 0 36px; color: var(--muted); font-size: .85rem; overflow: hidden; }
 .footer-wordmark {

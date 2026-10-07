@@ -93,15 +93,65 @@ document.getElementById("demoReset").addEventListener("click", () => {
 });
 render();
 
-// Contact form → mailto (static hosting has no backend).
+// Contact form → n8n webhook. Falls back to mailto if no webhook is set or it can't be reached.
+const CONTACT_WEBHOOK = "https://n8n-smartmarketer.duckdns.org/webhook/tessox-enquiry";
 const CONTACT_EMAIL = "zaryabdaha111@gmail.com";
-document.getElementById("contactForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const f = new FormData(e.target);
+
+const contactForm = document.getElementById("contactForm");
+const contactSubmit = document.getElementById("contactSubmit");
+const formStatus = document.getElementById("formStatus");
+const formSuccess = document.getElementById("formSuccess");
+
+function mailtoFor(f) {
   const company = f.get("company") ? `, ${f.get("company")}` : "";
   const subject = `${f.get("topic")} enquiry — ${f.get("name")}${company}`;
   const body = `${f.get("message")}\n\n${f.get("name")}${company} (${f.get("email")})`;
-  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function showSuccess() {
+  contactForm.hidden = true;
+  formSuccess.hidden = false;
+  formSuccess.focus();
+}
+
+contactForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const f = new FormData(contactForm);
+
+  // Bots fill the hidden field; pretend it worked and drop it.
+  if (f.get("website")) { showSuccess(); return; }
+
+  if (!CONTACT_WEBHOOK) { window.location.href = mailtoFor(f); return; }
+
+  // Form-encoded keeps this a "simple" request, so the browser skips the CORS preflight.
+  const payload = new URLSearchParams({
+    name: f.get("name"),
+    email: f.get("email"),
+    company: f.get("company") || "",
+    topic: f.get("topic"),
+    message: f.get("message"),
+    page: location.href,
+    submittedAt: new Date().toISOString(),
+  });
+
+  contactSubmit.disabled = true;
+  contactSubmit.firstChild.textContent = "Sending… ";
+  formStatus.textContent = "Sending your enquiry…";
+  formStatus.classList.remove("is-error");
+
+  try {
+    const res = await fetch(CONTACT_WEBHOOK, { method: "POST", body: payload });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    contactForm.reset();
+    showSuccess();
+  } catch {
+    formStatus.innerHTML = `Couldn't send that. Please try again, or <a href="${mailtoFor(f)}">email us directly</a>.`;
+    formStatus.classList.add("is-error");
+  } finally {
+    contactSubmit.disabled = false;
+    contactSubmit.firstChild.textContent = "Send enquiry ";
+  }
 });
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
