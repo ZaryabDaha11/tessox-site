@@ -100,7 +100,6 @@ const CONTACT_EMAIL = "zaryabdaha111@gmail.com";
 const contactForm = document.getElementById("contactForm");
 const contactSubmit = document.getElementById("contactSubmit");
 const formStatus = document.getElementById("formStatus");
-const formSuccess = document.getElementById("formSuccess");
 
 function mailtoFor(f) {
   const company = f.get("company") ? `, ${f.get("company")}` : "";
@@ -109,10 +108,16 @@ function mailtoFor(f) {
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
+function setStatus(state, html) {
+  formStatus.classList.remove("is-error", "is-success");
+  if (state) formStatus.classList.add(state);
+  formStatus.innerHTML = html;
+}
+
+// Clear the form but keep it on screen, with a confirmation under the button.
 function showSuccess() {
-  contactForm.hidden = true;
-  formSuccess.hidden = false;
-  formSuccess.focus();
+  contactForm.reset();
+  setStatus("is-success", "✓ Thanks, your enquiry has been received. We'll reply within one business day.");
 }
 
 contactForm.addEventListener("submit", async (e) => {
@@ -137,17 +142,14 @@ contactForm.addEventListener("submit", async (e) => {
 
   contactSubmit.disabled = true;
   contactSubmit.firstChild.textContent = "Sending… ";
-  formStatus.textContent = "Sending your enquiry…";
-  formStatus.classList.remove("is-error");
+  setStatus(null, "Sending your enquiry…");
 
   try {
     const res = await fetch(CONTACT_WEBHOOK, { method: "POST", body: payload });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    contactForm.reset();
     showSuccess();
   } catch {
-    formStatus.innerHTML = `Couldn't send that. Please try again, or <a href="${mailtoFor(f)}">email us directly</a>.`;
-    formStatus.classList.add("is-error");
+    setStatus("is-error", `Couldn't send that. Please try again, or <a href="${mailtoFor(f)}">email us directly</a>.`);
   } finally {
     contactSubmit.disabled = false;
     contactSubmit.firstChild.textContent = "Send enquiry ";
