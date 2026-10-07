@@ -94,7 +94,7 @@ document.getElementById("demoReset").addEventListener("click", () => {
 render();
 
 // Contact form → n8n webhook. Falls back to mailto if no webhook is set or it can't be reached.
-const CONTACT_WEBHOOK = "https://n8n-smartmarketer.duckdns.org/webhook-test/tessox-enquiry";
+const CONTACT_WEBHOOK = "https://n8n-smartmarketer.duckdns.org/webhook/tessox-enquiry";
 const CONTACT_EMAIL = "zaryabdaha111@gmail.com";
 
 const contactForm = document.getElementById("contactForm");
