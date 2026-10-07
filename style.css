@@ -111,12 +111,9 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round
 .hero { position: relative; padding: 80px 0 110px; overflow-x: clip; }
 .grid-bg {
   position: absolute; inset: -72px 0 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, #000 30%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, #000 30%, transparent 75%);
+  background: url("hero-bg.svg") center / cover no-repeat;
+  mask-image: radial-gradient(ellipse 60% 75% at 74% 52%, #000 15%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 75% at 74% 52%, #000 15%, transparent 72%);
 }
 .hero-inner { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
 .eyebrow {
@@ -136,7 +133,6 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round
 
 /* Hero console */
 .hero-visual { position: relative; isolation: isolate; }
-.tesseract { position: absolute; left: 50%; top: 50%; width: 140%; aspect-ratio: 1; transform: translate(-50%, -50%); z-index: -1; pointer-events: none; opacity: .7; }
 .console {
   position: relative;
   background: linear-gradient(180deg, rgba(20, 20, 23, .78), rgba(12, 12, 14, .82));
@@ -448,7 +444,6 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round
   .console { transform: none; }
   .badge-1 { left: 12px; }
   .badge-2 { right: 12px; }
-  .tesseract { width: 115%; }
 }
 @media (max-width: 900px) {
   .cards, .projects { grid-template-columns: 1fr; }
