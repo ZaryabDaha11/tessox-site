@@ -344,7 +344,8 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round
 .stack-group li:hover { border-color: rgba(62, 230, 168, .5); color: var(--accent); transform: translateY(-2px); }
 
 /* Team */
-.team { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 22px; }
+.team { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.team .origin { grid-column: 1 / -1; }
 .member { display: flex; gap: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
 .avatar, .member img {
   flex: none; width: 84px; height: 84px; border-radius: 22px; object-fit: cover;
@@ -354,6 +355,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round
   box-shadow: 0 12px 30px -10px var(--glow);
 }
 .member .member-photo { flex: none; width: 150px; height: 188px; object-fit: cover; border-radius: 18px; padding: 0; background: none; border: 1px solid var(--border-strong); box-shadow: 0 20px 40px -20px var(--glow); }
+.member .member-initials { display: grid; place-items: center; font: 600 2.2rem var(--display); letter-spacing: -.02em; color: var(--accent); background: radial-gradient(120px 120px at 50% 30%, rgba(62, 230, 168, .14), transparent 70%), linear-gradient(180deg, #1a1a1d, #0b0b0d); }
 .member h3 { font-size: 1.35rem; margin-bottom: 4px; }
 .role { font-family: var(--mono); font-size: .76rem; color: var(--accent); margin-bottom: 14px; }
 .member p:not(.role) { color: var(--muted); font-size: .95rem; }
@@ -452,6 +454,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round
   .badge-2 { right: 12px; }
 }
 @media (max-width: 900px) {
+  .team { grid-template-columns: 1fr; }
   .cards, .projects { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr 1fr; row-gap: 40px; }
   .steps::before { display: none; }
