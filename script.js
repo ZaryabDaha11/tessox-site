@@ -1,3 +1,9 @@
+// Refuse to render inside someone else's frame (clickjacking defence; GitHub Pages can't send X-Frame-Options)
+if (window.top !== window.self) {
+  document.documentElement.style.display = "none";
+  window.top.location = window.self.location;
+}
+
 // Mobile nav
 const navToggle = document.getElementById("navToggle");
 const navLinks = document.getElementById("navLinks");
@@ -68,7 +74,7 @@ function render() {
     pos = h.end;
   }
   html += escapeHtml(text.slice(pos));
-  output.innerHTML = html || '<span style="color:var(--muted)">Nothing to send.</span>';
+  output.innerHTML = html || '<span class="muted">Nothing to send.</span>';
 
   if (hits.length) {
     status.textContent = `${hits.length} leak${hits.length > 1 ? "s" : ""} blocked`;
@@ -101,6 +107,37 @@ const contactForm = document.getElementById("contactForm");
 const contactSubmit = document.getElementById("contactSubmit");
 const formStatus = document.getElementById("formStatus");
 
+// Cloudflare Turnstile proves the sender is human; n8n verifies the token with the secret key.
+// Site key is public by design. The *secret* key lives in n8n only, never here.
+const TURNSTILE_SITE_KEY = "0x4AAAAAAFRuoSxKHJDUOrQf";
+const turnstileBox = document.getElementById("turnstile");
+let turnstileWidget = null;
+let turnstileRequested = false;
+
+function loadTurnstile() {
+  if (!TURNSTILE_SITE_KEY || turnstileRequested) return;
+  turnstileRequested = true;
+  window.onTurnstileLoad = () => {
+    turnstileWidget = window.turnstile.render(turnstileBox, {
+      sitekey: TURNSTILE_SITE_KEY,
+      theme: "dark",
+      appearance: "interaction-only",
+    });
+  };
+  const s = document.createElement("script");
+  s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoad";
+  s.async = true;
+  document.head.appendChild(s);
+}
+
+// Load it only when a visitor gets near the form, so it never slows down the first paint.
+if (TURNSTILE_SITE_KEY) {
+  new IntersectionObserver(([en], obs) => {
+    if (en.isIntersecting) { loadTurnstile(); obs.disconnect(); }
+  }, { rootMargin: "800px 0px" }).observe(contactForm);
+  contactForm.addEventListener("focusin", loadTurnstile, { once: true });
+}
+
 function mailtoFor(f) {
   const company = f.get("company") ? `, ${f.get("company")}` : "";
   const subject = `${f.get("topic")} enquiry — ${f.get("name")}${company}`;
@@ -129,6 +166,16 @@ contactForm.addEventListener("submit", async (e) => {
 
   if (!CONTACT_WEBHOOK) { window.location.href = mailtoFor(f); return; }
 
+  let token = "";
+  if (TURNSTILE_SITE_KEY) {
+    token = turnstileWidget !== null ? window.turnstile.getResponse(turnstileWidget) || "" : "";
+    if (!token) {
+      loadTurnstile();
+      setStatus("is-error", `Running a quick security check. Please try again in a few seconds, or <a href="${mailtoFor(f)}">email us directly</a>.`);
+      return;
+    }
+  }
+
   // Form-encoded keeps this a "simple" request, so the browser skips the CORS preflight.
   const payload = new URLSearchParams({
     name: f.get("name"),
@@ -138,6 +185,7 @@ contactForm.addEventListener("submit", async (e) => {
     message: f.get("message"),
     page: location.href,
     submittedAt: new Date().toISOString(),
+    turnstileToken: token,
   });
 
   contactSubmit.disabled = true;
@@ -151,6 +199,8 @@ contactForm.addEventListener("submit", async (e) => {
   } catch {
     setStatus("is-error", `Couldn't send that. Please try again, or <a href="${mailtoFor(f)}">email us directly</a>.`);
   } finally {
+    // Tokens are single-use: get a fresh one for the next submission.
+    if (turnstileWidget !== null) window.turnstile.reset(turnstileWidget);
     contactSubmit.disabled = false;
     contactSubmit.firstChild.textContent = "Send enquiry ";
   }

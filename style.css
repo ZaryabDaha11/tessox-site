@@ -423,6 +423,10 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round
 .form-note.is-error { color: var(--danger); }
 .form-note.is-success { color: var(--accent); background: var(--accent-dim); border: 1px solid rgba(62, 230, 168, .3); border-radius: 10px; padding: 10px 14px; font-size: .85rem; }
 
+.muted { color: var(--muted); }
+.turnstile:empty { display: none; }
+.turnstile iframe { max-width: 100%; }
+
 /* Footer */
 .footer { padding: 40px 0 36px; color: var(--muted); font-size: .85rem; overflow: hidden; }
 .footer-wordmark {
