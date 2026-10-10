@@ -34,7 +34,7 @@ Clients own everything: full source code, documentation and credentials are hand
 
 ## Stack
 
-n8n, Make, Zapier, Temporal, Python, Node.js, TypeScript, PostgreSQL, Redis, Docker; LLMs from OpenAI, Anthropic and Gemini, plus open models run locally; AWS, GCP, Linux.
+n8n, Make, Zapier, Temporal, Python, Node.js, TypeScript, PostgreSQL, Redis, Docker; LLMs from OpenAI, Anthropic and Gemini, plus open models (Qwen) run locally with Ollama and llama.cpp; AWS, GCP, Linux.
 
 ## Team
 
