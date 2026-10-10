@@ -1,0 +1,45 @@
+# Tessox
+
+> Tessox (legal name: Tessox Labs) is an AI automation agency founded by Zaryab Khan and Mehmood Bhutta. We build AI automations that take repetitive work off a company's team — lead routing, reporting, research, data entry and support triage — with security built in, so API keys, credentials and customer data never leak into AI tools.
+
+Website: https://tessox.com/
+Contact: enquiry form at https://tessox.com/#contact (reply within one business day)
+
+## Services
+
+- [AI Automation](https://tessox.com/#services): Core service. Agentic, multi-step workflows and integrations; CRM, email and internal-tool automation; monitoring, retries and clear handover documentation.
+- [Offline LLM Integration](https://tessox.com/#services): Private language models deployed on a client's own servers or machines; retrieval (RAG) over internal documents; air-gapped and on-prem setups. Data never leaves the client's network and there is no per-token bill.
+- [AI Data-Leak Prevention](https://tessox.com/#demo): Guards that detect and redact API keys, passwords, connection strings and personal data before a prompt reaches an external LLM, plus audit logs and usage policies. A live demo runs in the browser on the website.
+
+## Selected work
+
+- [Reddit Social Listening & Lead Routing](https://tessox.com/#work): n8n pipeline that scans forums, scores intent and pushes qualified leads to the CRM. Replaced 20+ hours of weekly manual reading.
+- [Automated Technical SEO Auditor](https://tessox.com/#case-studies): Python pipeline that crawls client URLs and flags missing H1s and Product/FAQ schema. Audits went from three days to under two minutes.
+- [YouTube Audience Intelligence Engine](https://tessox.com/#case-studies): Extracts video metadata and groups real viewer questions by topic with an AI layer. Cut market research time by 90%.
+- [Cross-Platform Reporting Automation](https://tessox.com/#work): Pulls Shopify, GA4 and CRM data into one PostgreSQL database. Saved 15 hours a week and let the agency handle 5x more clients without hiring.
+- [Competitor Gap Analysis Tracker](https://tessox.com/#work): Daily AI-search visibility tracking logged to Google Sheets. Saved 12 hours of manual tracking per week.
+- [Automated Market Research Agent](https://tessox.com/#work): Multi-source research synthesised into an executive report. A 3-day task became a 30-second process.
+- [Automated Error Recovery & Alerting](https://tessox.com/#work): n8n safety net that catches workflow failures, retries, and alerts the team in Slack.
+- [Enterprise Knowledge Retrieval](https://tessox.com/#work): Search agent over internal documentation. Saved about 4 hours per employee per week.
+
+## How an engagement works
+
+1. Discovery call: map the workflow, the data involved, and where AI genuinely helps.
+2. Proposal: clear scope, timeline and fixed price; security and privacy requirements agreed up front.
+3. Build & test: weekly check-ins and working demos, tested against real data and edge cases.
+4. Handover & support: documentation, team training, and ongoing support in production.
+
+Clients own everything: full source code, documentation and credentials are handed over.
+
+## Stack
+
+n8n, Make, Zapier, Temporal, Python, Node.js, TypeScript, PostgreSQL, Redis, Docker; LLMs from OpenAI, Anthropic and Gemini, plus open models run locally; AWS, GCP, Linux.
+
+## Team
+
+- Zaryab Khan — Co-Founder & Lead AI Automation Engineer. Builds automation pipelines, offline LLM deployments and AI security tooling. https://www.linkedin.com/in/zaryab-khan-/
+- Mehmood Bhutta — Co-Founder & Lead AI Automation Engineer. Designs and ships AI automation workflows and leads client partnerships. https://www.linkedin.com/in/mehmood-jb/
+
+## About the name
+
+Tessox fuses the tesseract (the four-dimensional cube: infinite energy, perfectly contained) with onyx (matte black and impenetrable) — automations that never stop, and systems that never leak.
