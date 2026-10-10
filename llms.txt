@@ -3,6 +3,7 @@
 > Tessox (legal name: Tessox Labs) is an AI automation agency founded by Zaryab Khan and Mehmood Bhutta. We build AI automations that take repetitive work off a company's team — lead routing, reporting, research, data entry and support triage — with security built in, so API keys, credentials and customer data never leak into AI tools.
 
 Website: https://tessox.com/
+LinkedIn: https://www.linkedin.com/company/tessox
 Contact: enquiry form at https://tessox.com/#contact (reply within one business day)
 
 ## Services
