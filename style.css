@@ -427,6 +427,12 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round
 .turnstile:empty { display: none; }
 .turnstile iframe { max-width: 100%; }
 
+/* 404 page */
+.notfound { min-height: 100vh; max-width: 760px; margin: 0 auto; padding: 48px 24px; display: flex; flex-direction: column; justify-content: center; }
+.notfound .logo { margin-bottom: 56px; }
+.notfound h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 700; letter-spacing: -0.035em; margin-bottom: 18px; }
+.notfound .hero-cta { margin-top: 28px; }
+
 /* Footer */
 .footer { padding: 40px 0 36px; color: var(--muted); font-size: .85rem; overflow: hidden; }
 .footer-wordmark {

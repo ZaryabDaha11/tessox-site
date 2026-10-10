@@ -13,6 +13,86 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta name="theme-color" content="#060607">
   <link rel="canonical" href="https://tessox.com/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <!-- Structured data: tells search engines who Tessox is (data only, not executed, so CSP is unaffected) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://tessox.com/#org",
+        "name": "Tessox",
+        "legalName": "Tessox Labs",
+        "alternateName": "Tessox Labs",
+        "url": "https://tessox.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tessox.com/logo.png",
+          "width": 512,
+          "height": 512
+        },
+        "image": "https://tessox.com/og-image.png",
+        "description": "Tessox is an AI automation agency. We build workflows that eliminate manual work, with security built in so your data never leaks into AI tools.",
+        "knowsAbout": [
+          "AI automation",
+          "Workflow automation",
+          "n8n",
+          "AI agents",
+          "Offline LLMs",
+          "AI data-leak prevention"
+        ],
+        "founder": [
+          {
+            "@id": "https://tessox.com/#zaryab"
+          },
+          {
+            "@id": "https://tessox.com/#mehmood"
+          }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://tessox.com/#zaryab",
+        "name": "Zaryab Khan",
+        "jobTitle": "Co-Founder & Lead AI Automation Engineer",
+        "worksFor": {
+          "@id": "https://tessox.com/#org"
+        },
+        "image": "https://tessox.com/zaryab.jpg",
+        "sameAs": [
+          "https://www.linkedin.com/in/zaryab-khan-/",
+          "https://github.com/ZaryabDaha11"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://tessox.com/#mehmood",
+        "name": "Mehmood Bhutta",
+        "jobTitle": "Co-Founder & Lead AI Automation Engineer",
+        "worksFor": {
+          "@id": "https://tessox.com/#org"
+        },
+        "image": "https://tessox.com/mehmood.jpg",
+        "sameAs": [
+          "https://www.linkedin.com/in/mehmood-jb/",
+          "https://github.com/MehmoodBhutta"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://tessox.com/#website",
+        "url": "https://tessox.com/",
+        "name": "Tessox",
+        "alternateName": "Tessox Labs",
+        "publisher": {
+          "@id": "https://tessox.com/#org"
+        },
+        "inLanguage": "en"
+      }
+    ]
+  }
+  </script>
 
   <!-- Link previews (LinkedIn, WhatsApp, Slack, X, iMessage) -->
   <meta property="og:type" content="website">
